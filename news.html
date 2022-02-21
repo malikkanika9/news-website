@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container{
+        display: flex;
+      }
+      #main{
+        border: 1px solid black;
+        flex: 8;
+      }
+#sidebar{
+  border: 1px solid black;
+
+flex: 2;
+
+}
+
+
+    </style>
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <div id="image"></div>
+        <div id="content"></div>
+        <div id="description"></div>
+        <div id="author"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+import sidebar from "/components/sidebar.js";
+let sidebar_div=document.getElementById("sidebar")
+sidebar_div.innerHTML=sidebar();
+
+let main=document.getElementById("main");
+    var scdata=JSON.parse(localStorage.getItem("article"));
+
+        console.log(scdata)
+      
+        document.getElementById("author").textContent=` ${scdata.author}`;
+    document.getElementById("image").innerHTML=`<img src="${scdata.urlToImage}">`;
+    document.getElementById("content").textContent=` ${scdata.content}`;
+    document.getElementById("description").textContent=` ${scdata.description}`;
+    
+
+</script>
